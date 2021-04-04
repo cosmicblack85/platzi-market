@@ -27,13 +27,19 @@ public class Producto {
 
     private Boolean estado;
 
-    public Integer getIdProdcuto() {
-        return idProdcuto;
-    }
-    /* CONSTRUCTORS */
+    /* Con insertable y updatable decimos que, a través de esta realción, no vamos a insertar ni  actualizad ni borrar
+    * ni insertar una categoría. Esto se debe hacer desde el entity categoría. Esto solo nos sirve para recuperar
+    * a que categoría sirve un producto.*/
+    @ManyToOne
+    @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
+    private Categoria categoria;
 
 
     /* GETTERS & SETTERS */
+
+    public Integer getIdProdcuto() {
+        return idProdcuto;
+    }
     public void setIdProdcuto(Integer idProdcuto) {
         this.idProdcuto = idProdcuto;
     }
