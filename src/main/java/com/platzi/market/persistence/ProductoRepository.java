@@ -23,13 +23,13 @@ public class ProductoRepository implements ProductRepository {
     @Override
     public List<Product> getAll(){
         List<Producto> productos = (List<Producto>) productoCrudRepository.findAll();
-        return mapper.toProduct(productos);
+        return mapper.toProducts(productos);
     }
 
     @Override
     public Optional<List<Product>> getByCategory(int categoryId) {
         List<Producto> productos = productoCrudRepository.findByIdCategoriaOrderByNombreAsc(categoryId);
-        return Optional.of(mapper.toProduct(productos));
+        return Optional.of(mapper.toProducts(productos));
     }
 
     /* Lo que hace la función lambda es: agarra los productos enviados en productos.map y los renopmbra a prods
@@ -38,7 +38,7 @@ public class ProductoRepository implements ProductRepository {
     @Override
     public Optional<List<Product>> getScarseProducts(int quantity) {
         Optional<List<Producto>> productos = productoCrudRepository.findByCantidadStockLessThanAndEstado(quantity,true);
-        return productos.map(prods ->mapper.toProduct(prods));
+        return productos.map(prods ->mapper.toProducts(prods));
     }
 
     @Override

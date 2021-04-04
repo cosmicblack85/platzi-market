@@ -13,7 +13,7 @@ public interface CategoryMapper {
     @Mappings({
             @Mapping(source = "idCategoria", target = "categoryId"),
             @Mapping(source = "descripcion", target = "category"),
-            @Mapping(source = "estado", target = "active")
+            @Mapping(source = "estado", target = "active"),
     })
     Category toCategory(Categoria categoria);
 
@@ -21,6 +21,7 @@ public interface CategoryMapper {
     * a colocar los @Mapping
     * Con @Mapping(target = "productos", ignore = true) indicamos que ingnore el mapeo del atributo productos
     * de Categoria porque en el Domino, Category no tiene este elemento.*/
+
     @InheritInverseConfiguration
     @Mapping(target = "productos", ignore = true)
     Categoria toCategoria(Category category);
