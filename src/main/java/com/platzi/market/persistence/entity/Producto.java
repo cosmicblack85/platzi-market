@@ -40,6 +40,7 @@ public class Producto {
     public Integer getIdProdcuto() {
         return idProdcuto;
     }
+
     public void setIdProdcuto(Integer idProdcuto) {
         this.idProdcuto = idProdcuto;
     }
